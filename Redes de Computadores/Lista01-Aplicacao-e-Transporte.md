@@ -4,30 +4,30 @@
 
 ### 2) Diferencie arquitetura cliente/servidor de arquitetura Peer-to-peer (ponto-a-ponto), com vantagens e desvantagens de cada uma.
 
-*Na arquitetura cliente-servidor, toda a informação a ser compartilhada está centralizada em uma máquina só (o servidor) e os hosts cliente apenas fazem solicitações a este servidor, não podendo fazer o papel de compartilhar informações. Enquanto isso, na arquitetura p2p, usuários diferentes detém informação e um host faz a solicitação dos dados diretamente à máquina detentora.*
+> *Na arquitetura cliente-servidor, toda a informação a ser compartilhada está centralizada em uma máquina só (o servidor) e os hosts cliente apenas fazem solicitações a este servidor, não podendo fazer o papel de compartilhar informações. Enquanto isso, na arquitetura p2p, usuários diferentes detém informação e um host faz a solicitação dos dados diretamente à máquina detentora.*
 <br><br> 
-*Vantagens da arquitetura cliente-servidor:*
-<li> Alta escalabilidade, rede evolutiva;
-<li> Gerenciamento simples;
-<li> informação centralizada e de fácil acesso;
-<li> Segurança;
+> *Vantagens da arquitetura cliente-servidor:*
+> <li> Alta escalabilidade, rede evolutiva;
+> **<li> Gerenciamento simples;
+> <li> informação centralizada e de fácil acesso;
+> <li> Segurança;
 
   
-*Desvantagens da Arquitetura Cliente-servidor:*
-<li> Servidor é um elo fraco. Qualquer problema que ocorra no servidor prejudica a rede inteira;
+> *Desvantagens da Arquitetura Cliente-servidor:*
+> <li> Servidor é um elo fraco. Qualquer problema que ocorra no servidor prejudica a rede inteira;
   
   
-*Vantagens da arquitetura P2P*
-<li> Perpetuação de arquivos. Com várias máquinas tendo cópias do arquivo, não existe um servidor que possa apagá-los ou alterá-los permanentemente;
-<li> Não vai existir um momento onde esta rede não funcionará, a não ser que a internet do mundo inteiro caia;
-<li> Com a repartição de dados, grandes conteúdos podem ser baixados em um intervalo de tempo muito menor;
+> *Vantagens da arquitetura P2P*
+> <li> Perpetuação de arquivos. Com várias máquinas tendo cópias do arquivo, não existe um servidor que possa apagá-los ou alterá-los permanentemente;
+> <li> Não vai existir um momento onde esta rede não funcionará, a não ser que a internet do mundo inteiro caia;
+> <li> Com a repartição de dados, grandes conteúdos podem ser baixados em um intervalo de tempo muito menor;
 
   
-*Desvantagens da arquitetura P2P*
-<li> Aumenta a necessidade de "largura de banda" dedicada apenas a conexão conforme a rede aumenta;
-<li> Uma informação pode existir na rede e jamais ser acessada por alguém que procura, apenas por não solicitar à máquina certa;
-<li> Se uma máquina da qual o host que solicita a informação sai da rede, pode haver corrupção da informação. Ex: Se o usuário está baixando um filme, pode estar faltando uma cena.
-<li>  Grande exigência do desempenho do computador ao agir como um servidor;
+> *Desvantagens da arquitetura P2P*
+> <li> Aumenta a necessidade de "largura de banda" dedicada apenas a conexão conforme a rede aumenta;
+> <li> Uma informação pode existir na rede e jamais ser acessada por alguém que procura, apenas por não solicitar à máquina certa;
+> <li> Se uma máquina da qual o host que solicita a informação sai da rede, pode haver corrupção da informação. Ex: Se o usuário está baixando um filme, pode estar faltando uma cena.
+> <li>  Grande exigência do desempenho do computador ao agir como um servidor;
 
   
 ### 3) Diferencie os principais requisitos de transporte que uma aplicação pode ter e dê exemplos de aplicação com tais requisitos.
@@ -46,7 +46,8 @@
   
 ### 4) Explique os métodos de formulário HTTP.
 
-  
+  > o método GET é utilizado para fazer "consultas" ou requisições ao servidor. Também utilizamos o GET quando os dados necessários para que o recurso correto seja encontrado devem permanecer na URL.
+  > o método POST é utilzado para enviar dados para o servidor, seja para criar ou atualizar dados já existentes. Os dados enviados ao servidor não permanecem n URL, mas são armazenados no corpo da requisição HTTP;
 
 ### 5) Explique o que é proxy HTTP e como é feito o “proxy transparente” em HTTP.
 
@@ -77,7 +78,7 @@ confiabilidade."**
 
 ### 10) Como é a configuração e o funcionamento da resolução de nomes reversa, isto é, de endereços IP para nomes de máquina?
 
-  >
+  > 
 
 ### 11) Diferencie as redes P2P puras das redes P2P híbridas.
 
@@ -95,26 +96,64 @@ confiabilidade."**
 
 ### 14) Quais são as diferenças filosóficas entre TCP e UDP?
 
+  > Enquanto o UDP dá mais valor à velocidade com a qual os dados são enviados e recebidos e menos à confiabilidade e integridade de tais dados, o TCP valoriza muito mais a integridade dos dados acima da velocidade de transmissão. 
+  > <a href="https://www.alura.com.br/artigos/quais-as-diferencas-entre-o-tcp-e-o-udp?gclid=CjwKCAjw9qiTBhBbEiwAp-GE0e3QEgkj95Ra9QqZ71TNnbELsFHPfgsTyyXZhH4pu9nAp9bIhcQN8xoCiMEQAvD_BwE"> Alura: TCP e UDP </a>
 
 ### 15) Quais são as diferenças práticas entre o TCP e o UDP?
 
+  > **" Há dois protocolos de transporte na Internet: TCP e UDP, e qualquer um pode levar mensagens da camada de aplicação. O TCP provê serviços orientados a conexão para suas aplicações. Alguns desses serviços são a entrega garantida de mensagens da camada de aplicação ao destino e controle de fluxo (isto é, compatibilização das velocidades do remetente e do receptor). O TCP também fragmenta mensagens longas em segmentos mais curtos e provê mecanismo de controle de congestionamento, de modo que uma origem reduz sua velocidade de transmissão quando a rede está congestionada. O protocolo UDP provê serviço não orientado a conexão para suas aplicações. É um serviço econômico que fornece segurança, sem controle de fluxo e de congestionamento."**
+  > O UDP funciona sem um _aperto de mão_, ou seja, sem confirmação de recebimento de dados, o qu ajuda na velocidade.
+  > **"Para manter a confiabilidade dos dados, o TCP utiliza um aperto de mãos de três vias, o _three way handshake_, também chamado de SYN,SYN-ACK,ACK.
+<br>O nome _SYN,SYN-ACK,ACK_ é uma resumida descrição de como esse handshake funciona. A conexão entre dois hosts começa com o primeiro enviando ao segundo um pacote de sincronização (_SYN_chronize).
+<br>O segundo host recebe esse pacote e responde com a confirmação do sincronização (_SYN_chronize-_ACK_nowledgment). O primeiro host, por fim, manda uma confirmação (_ACK_nowledge) para o segundo, assim estabelecendo a conexão."**
 
 ### 16) Em uma transmissão, como se identifica um processo específico em uma máquina? Dê exemplos.
 
-
+  > Através das portas. Uma porta é um objeto abstrato de 16 bits utilizado exatamente para identificar processos de aplicações e que permite a comunicação entre duas máquinas. Existem portas bastante conhecidas (well-known ports) que servem a propósitos específicos.   
+  > <li> 20 e 21 (FTP)
+  > <li> 25 (SMTP)
+  > <li> 80 (HTTP)
+  > <li> 443 (HTTPS)
+    
 ### 17) O que são sockets? Que funções são necessárias ao uso de sockets?
 
+  > **"Qualquer mensagem enviada de um processo
+para outro tem de passar pela rede subjacente. Um processo envia mensagens para a rede e recebe mensagens
+dela através de uma interface de software denominada socket. Vamos considerar uma analogia que nos auxiliará
+a entender processos e sockets. Um processo é semelhante a uma casa e seu socket, à porta da casa. Quando um
+processo quer enviar uma mensagem a outro processo em outro hospedeiro, ele empurra a mensagem pela porta
+(socket). O emissor admite que exista uma infraestrutura de transporte do outro lado de sua porta que transportará a mensagem pela rede até a porta do processo destinatário. Ao chegar ao hospedeiro destinatário, a mensagem passa pela porta (socket) do processo receptor, que então executa alguma ação sobre a mensagem."**
+  > Sockets são interfaces de software através das quais processos enviam e recebem mensagens. Servem como "portas de entrada" de dados enviados pela rede.
+  > 
 
 ### 18) Para que serve o checksum? Como ele funciona?
 
+  > Checksum ou _soma de verificação_ serve para verificar se um arquivo é exatamente o mesmo antes e depois de sua transmissão, ou seja, para verificar corrupção do arquivo.
+  > **"A soma de verificação é calculada usando uma função de hash e normalmente é lançada junto com o download. Para verificar a integridade do arquivo, um usuário calcula a soma de verificação usando um programa de soma de verificação e, em seguida, compara os dois para verificar se eles correspondem."**
 
 ### 19) Como são realizados o estabelecimento e o término de conexão do TCP?
+
+  > **"Para manter a confiabilidade dos dados, o TCP utiliza um aperto de mãos de três vias, o _three way handshake_, também chamado de SYN,SYN-ACK,ACK.
+<br>O nome _SYN,SYN-ACK,ACK_ é uma resumida descrição de como esse handshake funciona. A conexão entre dois hosts começa com o primeiro enviando ao segundo um pacote de sincronização (_SYN_chronize).
+<br>O segundo host recebe esse pacote e responde com a confirmação do sincronização (_SYN_chronize-_ACK_nowledgment). O primeiro host, por fim, manda uma confirmação (_ACK_nowledge) para o segundo, assim estabelecendo a conexão."**
+  > Dentro do cabeçalho de segmento TCP, existem seis campos de 1 bit que contêm a informação de controle usada para gerenciar os processos de TCP. Esses campos são:
+  > <li>URG - Campo indicador de urgência
+  > <li>ACK - Campo indicador de confirmação
+  > <li>PSH - Função Push
+  > <li>RST - Restabelecer a conexão
+  > <li>SYN - Sincronizar números em sequência
+  > <li>FIN - Não há mais dados do remetente
+    
+  > **"A fase de encerramento da sessão TCP é um processo de quatro fases, em que cada interlocutor responsabiliza-se pelo encerramento do seu lado da ligação. Quando um deles pretende finalizar a sessão, envia um pacote com a flag FIN ativa, ao qual deverá receber uma resposta ACK. Por sua vez, o outro interlocutor irá proceder da mesma forma, enviando um FIN ao qual deverá ser respondido um ACK."**
 
 
 ### 20) Como funciona a janela deslizante do TCP? Quais os modos de funcionamento e em que casos é feita a troca?
 
-
+  > A janela deslizante do TCP serve como barreira, limitando a quantidade de dados que podem ser enviados a um receptor de acordo com quantos buffers de recebimento do receptor estão livres. Dados ficam no buffer de recebimento até serem lidos pela aplicação de recebimento.  
+    
 ### 21) Como funciona o controle de fluxo do TCP?
   
+    
+    
 ### 22) Crie um protocolo de aplicação.
 
