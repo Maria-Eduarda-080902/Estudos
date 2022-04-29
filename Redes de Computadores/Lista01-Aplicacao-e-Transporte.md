@@ -55,11 +55,11 @@
 
 ### 6) Explique porque se diz que o protocolo FTP é controlado “fora de banda”.
 
-  >  o FTP usa duas conexões TCP paralelas para transferir um arquivo: uma
+  > **"... o FTP usa duas conexões TCP paralelas para transferir um arquivo: uma
 _conexão de controle_ e uma _conexão de dados_. A primeira é usada para enviar informações de controle entre os
 dois hospedeiros — como identificação de usuário, senha, comandos para trocar diretório remoto e comandos de
 “enviar” (put) e “receber” (get) arquivos. A conexão de dados é a usada para enviar de fato um arquivo. Como o
-FTP usa uma conexão de controle separada, dizemos que ele envia suas informações de controle _fora da banda_.
+FTP usa uma conexão de controle separada, dizemos que ele envia suas informações de controle _fora da banda_."**
 
 ### 7) Explique porque é possível mandar mensagens usando o SMTP fazendo-se passar por outra pessoa, mesmo sem saber a senha da pessoa.
 
@@ -71,10 +71,13 @@ FTP usa uma conexão de controle separada, dizemos que ele envia suas informaç�
 
 ### 9) Explique como são organizados os servidores raiz do protocolo DNS.
 
-  > 
+  > **"Na Internet há 13 servidores DNS raiz (denominados de A a M) e a maior parte
+deles está localizada na América do Norte. [...] Embora tenhamos nos referido a cada um dos 13 servidores DNS raiz como se fossem um servidor único, na realidade, cada um é um conglomerado de servidores replicados, para fins de segurança e
+confiabilidade."**
 
 ### 10) Como é a configuração e o funcionamento da resolução de nomes reversa, isto é, de endereços IP para nomes de máquina?
 
+  >
 
 ### 11) Diferencie as redes P2P puras das redes P2P híbridas.
 
