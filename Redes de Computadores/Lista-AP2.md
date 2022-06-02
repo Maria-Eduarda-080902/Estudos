@@ -1,24 +1,32 @@
 
 ### 1)	Cite e explique os cinco serviços da camada de rede.
 
+> - Encapsulamento: Enviar pacotes dentro de pacotes IP para poderem ser transportados independentemente da sua
+> - Roteamento: Capacidade de __repassar__ pacotes e de criar rotas para enviar um pacote de um endereço a outro
+> - Fragmentação: Capacidade de separar pacotes grandes demais para serem transportados pelo enlace de uma vez só e reunir seus fragmentos ao chegar ao destino.
+> - Internetworking/Interconexão: Capacidade de 
+> - Endereçamento: Cada host possui um endereço para que possa receber e enviar pacotes e ser encontrado pelos demais nós da rede;
+
 ### 2)	Qual a diferença entre roteamento intra-AS e roteamento inter-AS?
+
+> - **Intra-AS** ocorre dentro de um AS, com suas próprias regras e protocolos, muitas vezes priorizando o desempenho sobre as regras.
+> - **Inter-AS** ocorre entre ASses através dos roteadores de borda, através do protocolo BGP, priorizando criar uma linguagem única que permita a comunicação corretamente e leve em consideração regras e políticas das ASses
 
 ### 3)	Quais as características de um protocolo de roteamento por “estado do enlace” (link state)?
 
 > **LINK STATE** : 
 > 
-> - Informações globais: Todos os rotedores da rede possuem informções completas sobre as rotas e sobre o custo de cada uma.
-> 
-> - Computa caminhos de um nó ao a outro da rede, calculando os custos e criando uma tabela de roteamento para aquele nó;
-> 
-> - Cada nó transmite pacotes de estado de enlace a todos os nós da rede;
-> 
+> - Informação global: todos os roteadores se comunicam com todos os roteadores para cosntruir uma base de dados de conexões e um mapa de topologia de rede que será comum a todos os roteadores;
+> - Melhores rotas para os dados: Cada roteador utilza o mapa topológico da rede para calcular as rotas dos dados que mais lhe beneficiem;
+> - Escalabilidade quase impossível, considerando que **todos** os roteadores se comunicam com **todos** os roteadores;
 > - a complexidade da implementação do algoritmo de estado de enlace para o pior caso é de ordem n ao quadrado: O(n^2);
-> 
 >  https://www.youtube.com/watch?v=rLYpzzRYRNk
 
 ### 4)	Quais as características de um protocolo de roteamento por vetor de distância?
 
+> Informação centralizada: Cada roteador possui uma tabela de rotas própria que envia aos seus vizinhos periodicamente. Os vizinhos agregam às próprias tabelas o que lhes interessar e repassam a própria tabela para os vizinhos periodicamente e assim por diante;
+> Ocorre por FLOOD (inundação);
+> Roteador recebe informações dos vizinhos assim que entra na rede;
 > https://www.youtube.com/watch?v=8SQLVMJJ5T4
 
 ### 5)	Quais as diferenças entre o RIPv1 e o RIPv2?
@@ -44,13 +52,16 @@ o nome e o endereço do roteador (ou do hospedeiro de destino) que retorna a men
 
 ### 9)	Explique rede, sub-rede e super-rede e máscara de rede.
 
-
+> - **REDE:** Uma faixa de endereços vizinhos que se conectam (vizinhos);
+> - **SUB-REDE:** Partes separadas desta faixa de endereços;
+> - **SUPER-REDE:** Quando duas ou mais faixas se conectam;
 
 ### 10)	Diferencie unicast, multicast, anycast e broadcast.
 
-> **Anycast** é um sistema que utiliza endereços de rede e métodos de roteamento, a fim de enviar os dados para o nó mais próximo disponível dentro de um grupo de receptores que estão usando o mesmo endereço IP. Em termos práticos, o uso de Anycast reduz a latência (aumentando assim a velocidade de entrega) e ajuda um provedor para equilibrar as cargas de servidor, ao fornecer “apoio” em caso de falha do servidor dentro do grupo que compartilha o endereço IP. Por esta razão, o Anycast é usado geralmente como uma maneira de fornecer disponibilidade elevada e balanceamento de carga para serviços sem estado, como o acesso a dados replicados.
-> 
-> 
+> - Unicast: Transmissão feita por um emissor, destinada a apenas um receptor na rede;
+> - Multicast: Transmissão feita de um emissor para vários receptores na rede (não necessariamente todos);
+> - Anycast: Transmissão feita de um emissor para o endereço mais próximo de um grupo de receptores na rede;
+> - Broadcast (difusão): É a transmissão feita de um emissor para todos os receptores da rede.
 
 ### 11)	Como o Network Address Translation (NAT) funciona?
 
