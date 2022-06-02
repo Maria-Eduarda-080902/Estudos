@@ -27,6 +27,9 @@
 
 ### 7)	Como é possível que dois pacotes enviados por uma mesma máquina e para o mesmo destino cheguem em ordem diferente da ordem de envio? Explique.
 
+> - Mudanças de roteamento, caminhos diferentes
+> - Fragmentação
+
 ### 8)	Como funciona o programa “traceroute”?
 
 > Explicando de uma maneira simples, o comando tracert verifica o tempo de acesso a um determinado IP de um servidor.
