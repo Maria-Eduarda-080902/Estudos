@@ -33,6 +33,16 @@
 
 ### 6)	Por que existe o OSPF hierárquico? Explique como funciona, suas vantagens e desvantagens.
 
+> Um sistema autônomo OSPF pode ser configurado hierarquicamente em áreas. Cada área roda seu próprio algoritmo de roteamento de estado de enlace OSPF, e cada roteador em uma área transmite seu estado de 
+enlace, por difusão, a todos os outros roteadores daquela área. Dentro de cada área, um ou mais roteadores de 
+borda de área são responsáveis pelo roteamento de pacotes fora da área. Por fim, exatamente uma área OSPF 
+no AS é configurada para ser a área de backbone. O papel primordial da área de backbone é rotear tráfego entre 
+as outras áreas do AS. O backbone sempre contém todos os roteadores de borda de área que estão dentro do 
+AS e pode conter também roteadores que não são de borda. O roteamento interárea dentro do AS requer que 
+o pacote seja roteado primeiro até um roteador de borda de área (roteamento intra-área), em seguida roteado 
+por meio do backbone até o roteador de borda de área que está na área de destino e, então, roteado até seu 
+destino final.
+
 ### 7)	Como é possível que dois pacotes enviados por uma mesma máquina e para o mesmo destino cheguem em ordem diferente da ordem de envio? Explique.
 
 > - Mudanças de roteamento, caminhos diferentes
@@ -64,6 +74,21 @@ o nome e o endereço do roteador (ou do hospedeiro de destino) que retorna a men
 > - Broadcast (difusão): É a transmissão feita de um emissor para todos os receptores da rede.
 
 ### 11)	Como o Network Address Translation (NAT) funciona?
+
+Considere o exemplo da Figura 4.22. Suponha que um usuário que está utilizando o hospedeiro 10.0.0.1 da 
+rede residencial requisite uma página de algum servidor Web (porta 80) cujo endereço IP é 128.119.40.186. O 
+hospedeiro 10.0.0.1 escolhe o número de porta de origem (arbitrário) 3345 e envia o datagrama para dentro da 
+LAN. O roteador NAT recebe o datagrama, gera um novo número de porta de origem, 5001, para o datagrama, 
+substitui o endereço IP de origem por seu endereço IP do lado da WAN, 138.76.29.7, e substitui o número de 
+porta de origem original, 3345, pelo novo número de porta de origem, 5001. Ao gerar um novo número de porta 
+de origem, o roteador NAT pode selecionar qualquer número de porta de origem que não esteja correntemente 
+na tabela de tradução NAT. (Note que, como o comprimento de um campo de número de porta é 16 bits, o protocolo NAT pode suportar mais de 60 mil conexões simultâneas com um único endereço IP do lado da WAN para 
+o roteador!) A NAT no roteador também adiciona um registro à sua tabela de tradução NAT. O servidor Web, 
+totalmente alheio ao fato de que o datagrama que está chegando com uma requisição HTTP foi manipulado pelo 
+roteador NAT, responde com um datagrama cujo endereço de destino é o endereço IP do roteador NAT, e cujo 
+número de porta de destino é 5001. Quando esse datagrama chega ao roteador NAT, ele indexa a tabela de tradução NAT usando o endereço IP de destino e o número de porta de destino para obter o endereço IP (10.0.0.1) e o 
+número de porta de destino (3345) adequados para o navegador na rede residencial. O roteador então reescreve 
+o endereço de destino e o número de porta de destino do datagrama e o repassa para a rede residencial.
 
 ### 12)	Quais as vantagens do IPv6? Ele é realmente necessário?
 
@@ -124,3 +149,10 @@ j.	O OSPF é um protocolo IGP (Interior Gateway Protocol) de estado do enlace de
 
 k.	No protocolo OSPF, um roteador se comunica com seus vizinhos por multicast, em vez de broadcast, nos endereços 224.0.0.5 — com todos os roteadores — e 224.0.0.6 — com roteadores designados.
 
+### ANOTAÇÃO BGP
+Acabamos de aprender como ISPs utilizam RIP e OSPF para determinar caminhos ótimos para pares origem-destino internos ao mesmo AS. Agora vamos examinar como são determinados caminhos para pares origem-destino que abrangem vários ASs. A versão 4 do protocolo de roteador de borda (Border Gateway Protocol — BGP), especificada no RFC 4271 (veja também [RFC 4274]), é o padrão, na prática, para roteamento entre sistemas autônomos na Internet de hoje. Esse protocolo é em geral denominado BGP4 ou apenas BGP. Na qualidade de um protocolo de roteamento inter-ASs (veja Seção 4.5.3), o BGP oferece a cada AS meios de:
+- 1. Obter de ASs vizinhos informações de alcançabilidade de sub-redes.
+- 2. Propagar a informação de alcançabilidade a todos os roteadores internos ao AS.
+- 3. Determinar rotas “boas” para sub-redes com base na informação de alcançabilidade e na política do AS.
+O BGP, sobretudo, permite que cada sub-rede anuncie sua existência ao restante da Internet. Uma sub-rede grita “Eu existo e estou aqui” e o BGP garante que todos os ASs da Internet saibam de sua existência e como 
+chegar até ela. Não fosse o BGP, cada sub-rede ficaria isolada — sozinha e desconhecida pelo restante da Internet.
