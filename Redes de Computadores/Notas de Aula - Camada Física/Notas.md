@@ -42,5 +42,17 @@
 
 - Cabos cross podem ser usados em hubs e switchs, pois esses equipamentos têm a percepçao automática de qual par é utilizado para recepção e qual é utilizado para transmissão. Termo: Auto MDI/MDI-X
 
-- Caixas Conectoras: existem "tomadas" específicas para cabos de par trançado. Estas tomadas possuem cabos que vão até o **patch panel**, e depois são conectados no switch através do **patch chord**;
+- Caixas Conectoras: existem "tomadas" específicas para cabos de par trançado. Estas tomadas possuem cabos que vão até o **patch panel**, e depois são conectados no switch através do **patch chord**, que também é o que conecta a 'tomada' ao computador;
+
+
+- **CABO COAXIAL**
+
+- Cabos semelhantes aos usados para antena parabólica (?)/tv a cabo, mas com resisteência muito diferente, impossível de aproveitar para redes;
+- Pouco usado para redes, mais amplamente usado em sistemas de televisão;
+- Forma redes frágeis, considerando que a remoção do terminador ou da interrupção de alguma conexão em T
+- Possui dois condutores não parelelos e isolados por uma camada de plástico. A "alma", ou condutor interno, é responsável pela transmissão/recepção de dados (não ao mesmo tempo), e o condutor externo é responsável pelo aterramento.
+- Melhor blindagem e menos flexibilidade em relação ao par trançado;
+- 
+
+- **FIBRA ÓPTICA**
 - 
