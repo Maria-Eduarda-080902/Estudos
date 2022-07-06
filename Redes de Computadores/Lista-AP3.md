@@ -46,21 +46,23 @@ de uma linha ponto a ponto.
 
 ### 4)	O cabeçalho da camada de enlace é sempre o mesmo ou depende da tecnologia? Qual o tamanho mínimo?
 
-
+Depende da tecnologia.
 
 ### 5)	O que é um endereço MAC e qual a sua relação com um endereço IP?
 
-6)	Diferencie as topologias em estrela, em barra e em anel, citando vantagens e desvantagens.
 
-7)	Explique para que serve e como funciona o protocolo CSMA/CD.
 
-8)	O que é um domínio de colisão?
+### 6)	Diferencie as topologias em estrela, em barra e em anel, citando vantagens e desvantagens.
 
-9)	Explique porque em cabos de rede metálicos com vários fios estes são agrupados em pares entrelaçados.
+### 7)	Explique para que serve e como funciona o protocolo CSMA/CD.
 
-10)	Explique uma vantagem e uma desvantagem de cada meio de transmissão a seguir: par-trançado, fibra ótica, rádio, infravermelho, microondas.
+### 8)	O que é um domínio de colisão?
 
-11)	Porque a maioria das faixas de frequência é regulamentada por órgãos governamentais e não simplesmente livre para uso?
+### 9)	Explique porque em cabos de rede metálicos com vários fios estes são agrupados em pares entrelaçados.
+
+### 10)	Explique uma vantagem e uma desvantagem de cada meio de transmissão a seguir: par-trançado, fibra ótica, rádio, infravermelho, microondas.
+
+### 11)	Porque a maioria das faixas de frequência é regulamentada por órgãos governamentais e não simplesmente livre para uso?
 
 12)	Qual a importância dos repetidores e amplificadores em enlaces de comunicação?
 
