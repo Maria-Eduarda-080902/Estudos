@@ -13,41 +13,9 @@
 
 ### 3)	Qual é a diferença entre hubs, switches e roteadores?
 
-Um hub tem várias linhas de entrada que ele conecta eletricamente.
-Os quadros que chegam em quaisquer dessas linhas são enviados a todas as outras. Se dois
-quadros chegarem ao mesmo tempo, eles colidirão, como ocorre em um cabo coaxial. Em outras
-palavras, o hub inteiro forma um único domínio de colisão. Todas as linhas que chegam a um hub
-devem operar na mesma velocidade. Os hubs diferem dos repetidores pelo fato de (normalmente)
-não amplificarem os sinais de entrada e serem projetados para conter várias placas de linha, cada
-uma com várias entradas, mas as diferenças são pequenas. Como os repetidores, os hubs não
-examinam o endereços 802 nem os utilizam de forma alguma.
-
-Os switches são semelhantes a pontes pelo fato de ambos basearem o roteamento em endereços
-de quadro. Na verdade, muitas pessoas utilizam os dois termos de forma intercambiável. A principal
-diferença é que um switch é usado com maior freqüência para conect ar computadores individuais,
-como mostra a Figura 4.47(c). Como conseqüência, quando o host A da Figura 4.47(b) quer enviar
-um quadro para o host B, a ponte recebe o quadro, mas simplesmente o descarta. Em contraste, na
-Figura 4.47(c), o switch deve encaminhar ativamente o quadro de A até B, porque não há outro
-caminho que o quadro possa seguir. Tendo em vista que cada porta do switch normalmente se
-conecta a um único computador, os swit ches precisam ter espaço para muito mais placas de linha
-do que as pontes destinadas a conectar apenas LANs. Cada placa de linha fornece espaço de buffer
-para os quadros que chegam a suas portas. Como cada porta é seu próprio domínio de colisão, os
-switches nunca perdem quadros devido a colisões. Porém, se os quadros chegarem com velocidade
-maior que aquela em que podem ser retransmitidos, o switch poderá ficar sem espaço de buffer e
-terá de começar a descartar quadros.
-
-Quando um pacote entra em um roteador, o cabeçalho de quadro
-e o final são retirados, e o pacote localizado no campo de carga útil do quadro (sombreado na
-Figura 4.46) é repassado ao software de roteamento. Esse software utiliza o cabeçalho de pacote
-para escolher uma linha de saída. No caso de um pacote IP, o cabeçalho do pacote conterá um
-endereço de 32 bits (IPv4) ou de 128 bits (IPv6), mas não um endereço 802 de 48 bits. O software
-de roteamento não vê os endereços de quadro e nem mesmo sabe se o pacote veio de uma LAN ou
-de uma linha ponto a ponto.
-
-Na revisão
-
 - Hubs ampliam o domínio de colisão, enquanto switches e roteadores limitam;
 - Hubs só repetem o sinal que recebem para todas as máquinas conectadas, enquanto o switch processa informação/endereços, e envia para todas as máquinas menos a que enviou para descobrir endereços e caminhos, possuindo aprendizado. Como o roteador atua na camada de rede, tem capacidade de processamento e possui informações sobre rotas.
+- Hubs fazem parte da camada 1, Switches fazem parte da camada 2 e roteadores fazem parte da camada 3;
 
 ### 4)	O cabeçalho da camada de enlace é sempre o mesmo ou depende da tecnologia? Qual o tamanho mínimo?
 
