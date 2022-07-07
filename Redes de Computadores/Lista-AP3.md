@@ -50,24 +50,106 @@ Depende da tecnologia.
 
 ### 5)	O que é um endereço MAC e qual a sua relação com um endereço IP?
 
-
+> Um endereço da camada de enlace é também denominado endereço de LAN, endereço físico ou endereço MAC (Media Access Control — controle de acesso ao meio). Para a maior parte das LANs (incluindo a Ethernet e as LANs 802.11 sem fio), o endereço MAC tem 6 bytes de comprimento, o que dá 248 endereços MAC possíveis. Tais endereços de 6 bytes costumam ser expressos em notação hexadecimal, com cada byte do endereço mostrado como um par de números hexadecimais. Apesar de os endereços MAC serem projetados como permanentes, agora é possível mudar o endereço de MAC de um adaptador via software.
+>  Não existem dois adaptadores com o mesmo endereço, o IEEE gerencia o espaço físico de endereços MAC.
 
 ### 6)	Diferencie as topologias em estrela, em barra e em anel, citando vantagens e desvantagens.
 
+#### Topologia Estrela
+
+> É o tipo de configuração mais comum. A rede é organizada de forma que os nós sejam conectados a um hub central, que atua como um servidor. O hub gerencia a transmissão de dados pela rede. Ou seja, qualquer dado enviado pela rede viaja pelo hub central antes de terminar em seu destino.
+
+> PRÓS:
+> - Gerenciamento conveniente de um local central
+> - Se um nó falhar, a rede ainda funciona
+> - Os dispositivos podem ser adicionados ou removidos sem interromper a rede
+> - Mais fácil de identificar e isolar problemas de desempenho
+
+> CONTRAS:
+> - Se o hub central falhar, toda a sua rede cairá
+> - O desempenho e a largura de banda são limitados pelo nó central
+> - Pode ser caro para operar
+
+
+#### Topologia Barramento
+
+> Também chamada de topologia de backbone, bus ou linha, orienta os dispositivos ao longo de um único cabo que vai de uma extremidade da rede à outra. Os dados fluirão ao longo do cabo conforme ele se desloca até seu destino.
+
+
+> PRÓS:
+> - Econômico para redes menores
+> - Layout simples; todos os dispositivos conectados por meio de um cabo
+> - Mais nós podem ser adicionados ao alongar a linha
+
+> CONTRAS:
+> - A rede é vulnerável a falhas de cabo
+> - Cada nó adicionado diminui as velocidades de transmissão
+> - Os dados só podem ser enviados em uma direção de cada vez
+
+#### Topologia Anel
+
+> Os nós são configurados em um padrão circular. Os dados viajam por cada dispositivo à medida que percorrem o anel. Em uma grande rede, repetidores podem ser necessários para evitar a perda de pacotes durante a transmissão. As topologias em anel podem ser configuradas como anel único (half-duplex) ou anel duplo (full-duplex) para permitir que o tráfego flua em ambas as direções simultaneamente.
+
+
+> PRÓS:
+> - Custo-beneficio
+> - Barato para instalar
+> - Fácil de identificar problemas de desempenho
+
+> CONTRAS:
+> - Se um nó cair, ele pode derrubar vários nós com ele
+> - Todos os dispositivos compartilham largura de banda, o que pode limitar a taxa de transferência
+> - Adicionar ou remover nós significa tempo de inatividade para toda a rede
+
+
+
 ### 7)	Explique para que serve e como funciona o protocolo CSMA/CD.
+
+1. O adaptador obtém um datagrama da camada de rede, prepara um quadro da camada de enlace e coloca o quadro no buffer do adaptador.
+2. Se o adaptador detectar que o canal está ocioso (ou seja, não há energia de sinal entrando nele a partir do canal), ele começa a transmitir o quadro. Por outro lado, se detectar que o canal está ocupado, ele espera até que não detecte energia de sinal, para então começar a transmitir o quadro.
+3. Enquanto transmite, o adaptador monitora a presença de energia de sinal vinda de outros adaptadores usando o canal de difusão.
+4. Se transmitir o quadro inteiro sem detectar energia de sinal de outros adaptadores, o adaptador terá terminado com o quadro. Por outro lado, se detectar energia de sinal de outros adaptadores enquanto transmite, ele aborta a transmissão (ou seja, para de transmitir seu quadro).
+5. Depois de abortar, o adaptador espera por um tempo aleatório e depois retorna à etapa 2
 
 ### 8)	O que é um domínio de colisão?
 
+> Domínio de colisão é uma área da rede na qual colisões de dados podem acontecer caso uma ou mais transmissões estejam sendo feitas simultaneamente. É um fenômeno que ocorre apenas em redes cujos nós tenham portas half-duplex, ou seja, não consigam transmitir e captar simultaneamente;
+
 ### 9)	Explique porque em cabos de rede metálicos com vários fios estes são agrupados em pares entrelaçados.
+
+Fios trançados para minimizar as interferências. Fios paralelos geram campos eletromagnéticos fortes o bastante para desviar eletrons, o que acaba gerando, por exemplo, linhas cruzadas;
 
 ### 10)	Explique uma vantagem e uma desvantagem de cada meio de transmissão a seguir: par-trançado, fibra ótica, rádio, infravermelho, microondas.
 
+#### Par-trançado
+- Barato e fácil de encontrar, além de ser compatível com a maior parte das tecnologias.
+- Decaimento da velocidade de transmissão conforme o comprimento do cabo aumenta.
+- Ter regras específicas de conexão e recepção ao cripar o cabo;
+
+#### Fribra Ótica
+- Qualidade de transmissão excelente, pouquíssima perda de dados ([2^-15 - 2^-12])
+- Alto preço de instalação e manutenção;
+
+#### Rádio
+- As ondas de rádio são fáceis de gerar, podem percorrer longas distâncias e penetrar facilmente nos prédios; portanto, são amplamente utilizadas para comunicação, seja em ambientes fechados ou abertos. As ondas de rádio também são omnidirecionais, o que significa que elas viajam em todas as direções a partir da fonte; desse modo, o transmissor e o receptor não precisam estar cuidadosa e fisicamente alinhados.
+- A transmissão omnidirecional pode ser uma desvantagem, já que a intensidade do sinal/taxa de transmissão vai se dissipar para todas os os sentidos, além de ser muito sujeita a interferências de outros canais;
+
+#### Infravermelho
+- É muito mais segura no que se trata de interferências, o que permite que qualquer pessoa consiga fazer transmissões por infravermelho sem precisar de licenças especiais. Por não atravessar sólidos, pode ser uma opção boa para ambientes fechados nos quais o sinal não poderá interferir em outros cômodos;
+- O sinal não atravessa objetos sólidos, então qualquer interferência física na frente da antena pode causar queda na rede e perda de dados;
+
+#### Microondas
+-
+- Tendo em vista que as microondas viajam em linha reta, se as torres estiverem muito afastadas, a Terra acabará ficando entre elas (como acontece no caso de um enlace entre San Francisco e Amsterdam). Conseqüentemente, é preciso instalar repetidores a intervalos periódicos. Quanto mais altas são as torres, mais distantes elas podem estar umas da ou tras. A distância entre os repetidores aumenta de acordo com a raiz quadrada da altura da torre. 
+
 ### 11)	Porque a maioria das faixas de frequência é regulamentada por órgãos governamentais e não simplesmente livre para uso?
 
-12)	Qual a importância dos repetidores e amplificadores em enlaces de comunicação?
+Basicamente, porque essas frequências estão sujeitas a interferência, sendo estas interferências tanto naturais quanto propositais por parte de usuários. Sendo assim, os governos se preocupam com questões de espionagem e de segurança de dados.
 
-13)	Diferencie as topologias em estrela, em barra e em anel, citando vantagens e desvantagens.
+### 12)	Qual a importância dos repetidores e amplificadores em enlaces de comunicação?
 
-14)	Ao enviar um pacote para outra máquina, que tipo de consulta ARP é feita quando:
-a.	O destino está na mesma rede local?
-b.	O destino está em uma rede local diferente?
+Auxiliar na permanência, na linearidade da taxa de transmissão no meio de um enlace. Por exemplo, dois cabos de 50m com um repetidos no meio depredam o sinal metade do que um cabo de 100m, enquanto percorrem a mesma distância, aumentando a velocidade da transmissão e reduzindo perda de dados.
+
+### 13)	Ao enviar um pacote para outra máquina, que tipo de consulta ARP é feita quando:
+#### a.	O destino está na mesma rede local?
+#### b.	O destino está em uma rede local diferente?
