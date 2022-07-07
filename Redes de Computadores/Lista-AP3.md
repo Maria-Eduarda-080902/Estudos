@@ -44,9 +44,14 @@ endereço de 32 bits (IPv4) ou de 128 bits (IPv6), mas não um endereço 802 de 
 de roteamento não vê os endereços de quadro e nem mesmo sabe se o pacote veio de uma LAN ou
 de uma linha ponto a ponto.
 
+Na revisão
+
+- Hubs ampliam o domínio de colisão, enquanto switches e roteadores limitam;
+- Hubs só repetem o sinal que recebem para todas as máquinas conectadas, enquanto o switch processa informação/endereços, e envia para todas as máquinas menos a que enviou para descobrir endereços e caminhos, possuindo aprendizado. Como o roteador atua na camada de rede, tem capacidade de processamento e possui informações sobre rotas.
+
 ### 4)	O cabeçalho da camada de enlace é sempre o mesmo ou depende da tecnologia? Qual o tamanho mínimo?
 
-Depende da tecnologia.
+Depende da tecnologia. O tamanho mínimo é 0, já que algumas tecnologias não usam.
 
 ### 5)	O que é um endereço MAC e qual a sua relação com um endereço IP?
 
@@ -123,32 +128,47 @@ Fios trançados para minimizar as interferências. Fios paralelos geram campos e
 
 #### Par-trançado
 - Barato e fácil de encontrar, além de ser compatível com a maior parte das tecnologias.
-- Decaimento da velocidade de transmissão conforme o comprimento do cabo aumenta.
+- Decaimento da velocidade de transmissão conforme o comprimento do cabo aumenta. ATENUAÇÃO
 - Ter regras específicas de conexão e recepção ao cripar o cabo;
+- Interferência em cabos não blindados
 
 #### Fribra Ótica
 - Qualidade de transmissão excelente, pouquíssima perda de dados ([2^-15 - 2^-12])
+- Baixíssima interferência;
+- Baixíssima Atenuação;
 - Alto preço de instalação e manutenção;
+- Dificuldade de contratação e qualificação;
+- Fragilidade e capacidade de reflexão de dados quando o cabo é dobrado a partir de certo ângulo;
 
 #### Rádio
 - As ondas de rádio são fáceis de gerar, podem percorrer longas distâncias e penetrar facilmente nos prédios; portanto, são amplamente utilizadas para comunicação, seja em ambientes fechados ou abertos. As ondas de rádio também são omnidirecionais, o que significa que elas viajam em todas as direções a partir da fonte; desse modo, o transmissor e o receptor não precisam estar cuidadosa e fisicamente alinhados.
-- A transmissão omnidirecional pode ser uma desvantagem, já que a intensidade do sinal/taxa de transmissão vai se dissipar para todas os os sentidos, além de ser muito sujeita a interferências de outros canais;
+- A transmissão omnidirecional pode ser uma desvantagem, já que a intensidade do sinal/taxa de transmis são vai se dissipar para todas os os sentidos, além de ser muito sujeita a interferências de outros canais;
 
 #### Infravermelho
 - É muito mais segura no que se trata de interferências, o que permite que qualquer pessoa consiga fazer transmissões por infravermelho sem precisar de licenças especiais. Por não atravessar sólidos, pode ser uma opção boa para ambientes fechados nos quais o sinal não poderá interferir em outros cômodos;
+- Baixo consumo de energia;
 - O sinal não atravessa objetos sólidos, então qualquer interferência física na frente da antena pode causar queda na rede e perda de dados;
 
 #### Microondas
--
+- Alta largura de banda, capacidade de transmitir mais dados;
+- Alta mobiidade;
+- Ondas cancerígenas;
+- Interferência demais;
 - Tendo em vista que as microondas viajam em linha reta, se as torres estiverem muito afastadas, a Terra acabará ficando entre elas (como acontece no caso de um enlace entre San Francisco e Amsterdam). Conseqüentemente, é preciso instalar repetidores a intervalos periódicos. Quanto mais altas são as torres, mais distantes elas podem estar umas da ou tras. A distância entre os repetidores aumenta de acordo com a raiz quadrada da altura da torre. 
+- São basicamente ondas de rádio unidirecionais;
+- A transmissão gasta muita energia;
 
 ### 11)	Porque a maioria das faixas de frequência é regulamentada por órgãos governamentais e não simplesmente livre para uso?
 
 Basicamente, porque essas frequências estão sujeitas a interferência, sendo estas interferências tanto naturais quanto propositais por parte de usuários. Sendo assim, os governos se preocupam com questões de espionagem e de segurança de dados.
 
+Na revisão: Se não existe regulamentação pela lei, faixas seriam usadas de tal maneira que existiria muita interferência. 
+
 ### 12)	Qual a importância dos repetidores e amplificadores em enlaces de comunicação?
 
-Auxiliar na permanência, na linearidade da taxa de transmissão no meio de um enlace. Por exemplo, dois cabos de 50m com um repetidos no meio depredam o sinal metade do que um cabo de 100m, enquanto percorrem a mesma distância, aumentando a velocidade da transmissão e reduzindo perda de dados.
+Auxiliar na permanência, na linearidade da taxa de transmissão no meio de um enlace. Por exemplo, dois cabos de 50m com um repetidos no meio depredam o sinal metade do que um cabo de 100m, enquanto percorrem a mesma distância, aumentando a velocidade da transmissão e reduzindo perda de dados. O repetidor regenera o sinal, compreendendo o que está sendo transmitido e transmitindo novamente. O amplificador aumenta **todo** sinal que chega para ele, inclusive o ruído.
+
+Amplificadores são praticamente inúteis em meios que possuem muito ruído, mas em meios como  fibra ótica com quase nenhum ruído é a melhor opção paraa redes de longa distância.
 
 ### 13)	Ao enviar um pacote para outra máquina, que tipo de consulta ARP é feita quando:
 #### a.	O destino está na mesma rede local?
