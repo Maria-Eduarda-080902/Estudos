@@ -41,6 +41,15 @@
 > Se o protocolo da camada de enlace efetuar uma verificação de erros, é o controlador transmissor que estabelece os bits de detecção de erros no cabeçalho de quadro e é o controlador receptor que executa a verificação de erros.
 > 
 
+### DIFERENÇA ENTRE INTERFACE DE REDE E PORTA ENLACE
+
+### PROTOCOLO ETHERNET
+
+### ARP
+
+- Reverse ARP: Resolve Endereços MAC para endereços IP. Meio Inútil
+- IPV6 -> ARP6
+
 
 ### Mind Dump
 
